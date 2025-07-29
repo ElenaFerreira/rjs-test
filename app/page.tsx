@@ -42,6 +42,46 @@ export default function Home() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const scrollToRegister = () => {
+    const registerSection = document.getElementById("register");
+    if (registerSection) {
+      registerSection.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const products = [
+    {
+      id: 1,
+      name: "T-shirt Eco",
+      price: "49,90 €",
+      image:
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80",
+    },
+    {
+      id: 2,
+      name: "Sweat Durable",
+      price: "89,90 €",
+      image:
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+    },
+    {
+      id: 3,
+      name: "Pantalon Organique",
+      price: "79,90 €",
+      image:
+        "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80",
+    },
+    {
+      id: 4,
+      name: "Saccoche Recyclée",
+      price: "59,90 €",
+      image:
+        "https://images.unsplash.com/photo-1622560480654-d96214fdc887?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+    },
+  ];
   return (
     <div className="font-sans text-gray-800 bg-white min-h-screen w-full">
       {/* Navigation */}
@@ -148,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-cream">
+      <section id="about" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6 text-green-800">Bienvenue chez SØMA</h2>
@@ -167,26 +207,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Products Section */}
+      <section id="products" className="py-16 bg-green-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center text-green-800">Nos produits phares</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+                onClick={scrollToRegister}
+              >
+                <div className="h-64 overflow-hidden">
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
+                  <p className="text-lg font-medium text-gray-700 mt-2">{product.price}</p>
+                  <button className="mt-4 w-full py-2 bg-green-700 text-white rounded cursor-pointer hover:bg-green-800 transition-colors">
+                    S&apos;inscrire
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section id="values" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center text-green-800">Nos valeurs éco-responsables</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto group">
-            <div className="bg-green-800 p-6 rounded-lg text-center transition-all duration-300 transform group-hover:blur-xs group-hover:scale-95 hover:scale-105 hover:blur-none hover:z-10 relative">
+            <div className="bg-green-800 p-6 rounded-lg text-center relative">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Recycle className="w-8 h-8 text-green-700" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-green-100">Matériaux durables</h3>
               <p className="text-white">Nous utilisons uniquement des matériaux biologiques, recyclés ou à faible impact environnemental.</p>
             </div>
-            <div className="bg-green-800 p-6 rounded-lg text-center transition-all duration-300 transform group-hover:blur-xs group-hover:scale-95 hover:scale-105 hover:blur-none hover:z-10 relative">
+            <div className="bg-green-800 p-6 rounded-lg text-center relative">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <PersonStanding className="w-8 h-8 text-green-700" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-green-100">Production éthique</h3>
               <p className="text-white">Nous garantissons des conditions de travail équitables et une rémunération juste pour tous nos artisans.</p>
             </div>
-            <div className="bg-green-800 p-6 rounded-lg text-center transition-all duration-300 transform group-hover:blur-xs group-hover:scale-95 hover:scale-105 hover:blur-none hover:z-10 relative">
+            <div className="bg-green-800 p-6 rounded-lg text-center relative">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Factory className="w-8 h-8 text-green-700" />
               </div>
@@ -251,7 +318,7 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  className="w-full bg-green-700 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-green-800 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                 >
                   Confirmer ma présence
                 </button>
@@ -305,7 +372,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-green-700 text-center text-sm">
-            <p>© 2023 SØMA. Tous droits réservés.</p>
+            <p>© 2025 SØMA. Tous droits réservés.</p>
           </div>
         </div>
       </footer>
