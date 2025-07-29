@@ -43,10 +43,10 @@ export default function Home() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToRegister = () => {
-    const registerSection = document.getElementById("register");
-    if (registerSection) {
-      registerSection.scrollIntoView({
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
         behavior: "smooth",
       });
     }
@@ -92,7 +92,12 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-green-800">SØMA</h1>
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="text-2xl font-bold text-green-800 hover:text-green-600 transition-colors cursor-pointer"
+            >
+              SØMA
+            </button>
           </div>
           {/* Mobile menu button */}
           <button className="md:hidden focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
@@ -104,52 +109,72 @@ export default function Home() {
           </button>
           {/* Desktop navigation */}
           <div className="hidden md:flex space-x-8">
-            <a href="#about" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
+            <button
+              onClick={() => scrollToSection("about")}
+              className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}
+            >
               À propos
-            </a>
-            <a href="#values" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
+            </button>
+            <button
+              onClick={() => scrollToSection("values")}
+              className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}
+            >
               Nos valeurs
-            </a>
-            <a href="#register" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
+            </button>
+            <button
+              onClick={() => scrollToSection("register")}
+              className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}
+            >
               S&apos;inscrire
-            </a>
-            <a href="#contact" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}
+            >
               Contact
-            </a>
+            </button>
           </div>
         </div>
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className={`md:hidden py-4 px-4 shadow-md ${isScrolled ? "bg-black/70 backdrop-blur-sm" : "bg-white"}`}>
             <div className="flex flex-col space-y-4">
-              <a
-                href="#about"
-                className={`transition-colors ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
-                onClick={toggleMenu}
+              <button
+                onClick={() => {
+                  scrollToSection("about");
+                  toggleMenu();
+                }}
+                className={`transition-colors text-left ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
               >
                 À propos
-              </a>
-              <a
-                href="#values"
-                className={`transition-colors ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
-                onClick={toggleMenu}
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("values");
+                  toggleMenu();
+                }}
+                className={`transition-colors text-left ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
               >
                 Nos valeurs
-              </a>
-              <a
-                href="#register"
-                className={`transition-colors ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
-                onClick={toggleMenu}
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("register");
+                  toggleMenu();
+                }}
+                className={`transition-colors text-left ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
               >
                 S&apos;inscrire
-              </a>
-              <a
-                href="#contact"
-                className={`transition-colors ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
-                onClick={toggleMenu}
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("contact");
+                  toggleMenu();
+                }}
+                className={`transition-colors text-left ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
               >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
         )}
@@ -157,6 +182,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
+        id="hero"
         className="w-full bg-cover bg-center h-screen flex items-center pt-16"
         style={{
           backgroundImage:
@@ -177,12 +203,12 @@ export default function Home() {
                 <span>15 Rue de Rivoli, Paris</span>
               </div>
             </div>
-            <a
-              href="#register"
+            <button
+              onClick={() => scrollToSection("register")}
               className="inline-block bg-green-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-800 transition-colors"
             >
               S&apos;inscrire à l&apos;événement
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -216,7 +242,7 @@ export default function Home() {
               <div
                 key={product.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-                onClick={scrollToRegister}
+                onClick={() => scrollToSection("register")}
               >
                 <div className="h-64 overflow-hidden">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
