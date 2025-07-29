@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { MenuIcon, X as CloseIcon } from "lucide-react";
+import { MenuIcon, X as CloseIcon, Calendar, MapPin } from "lucide-react";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -124,16 +124,16 @@ export default function Home() {
         }}
       >
         <div className="container mx-auto px-4 text-center">
-          <div className="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-lg max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-green-800 mb-4">Notre pop-up store ouvre demain à Paris</h1>
+          <div className="bg-white/70 backdrop-blur-xs p-8 md:p-12 rounded-lg max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-green-800 mb-4">Notre pop-up store ouvre demain à Paris</h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-700">Découvrez notre collection de vêtements éco-responsables</p>
             <div className="flex flex-col md:flex-row justify-center gap-6 mb-6">
               <div className="flex flex-col items-center bg-green-50 p-4 rounded-lg">
-                <span className="text-green-800 font-bold">Date</span>
+                <Calendar className="text-green-800 w-6 h-6 mb-1" />
                 <span>Demain, 12h00</span>
               </div>
               <div className="flex flex-col items-center bg-green-50 p-4 rounded-lg">
-                <span className="text-green-800 font-bold">Lieu</span>
+                <MapPin className="text-green-800 w-6 h-6 mb-1" />
                 <span>15 Rue de Rivoli, Paris</span>
               </div>
             </div>
