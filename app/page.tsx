@@ -71,7 +71,7 @@ export default function Home() {
               Nos valeurs
             </a>
             <a href="#register" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
-              S'inscrire
+              S&apos;inscrire
             </a>
             <a href="#contact" className={`transition-colors ${isScrolled ? "text-green-800 hover:text-green-600" : "hover:text-green-600"}`}>
               Contact
@@ -101,7 +101,7 @@ export default function Home() {
                 className={`transition-colors ${isScrolled ? "text-white hover:text-green-200" : "hover:text-green-600"}`}
                 onClick={toggleMenu}
               >
-                S'inscrire
+                S&apos;inscrire
               </a>
               <a
                 href="#contact"
@@ -141,7 +141,7 @@ export default function Home() {
               href="#register"
               className="inline-block bg-green-700 text-white px-8 py-3 rounded-lg font-medium hover:bg-green-800 transition-colors"
             >
-              S'inscrire à l'événement
+              S&apos;inscrire à l&apos;événement
             </a>
           </div>
         </div>
@@ -233,7 +233,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold mb-2 text-green-800">Production locale</h3>
               <p className="text-gray-700">
-                Nous privilégions les ateliers locaux pour réduire notre empreinte carbone et soutenir l'économie locale.
+                Nous privilégions les ateliers locaux pour réduire notre empreinte carbone et soutenir l&apos;économie locale.
               </p>
             </div>
           </div>
