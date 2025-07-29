@@ -224,7 +224,7 @@ export default function Home() {
                 <div className="p-4">
                   <h3 className="text-xl font-semibold text-green-800">{product.name}</h3>
                   <p className="text-lg font-medium text-gray-700 mt-2">{product.price}</p>
-                  <button className="mt-4 w-full py-2 bg-green-700 text-white rounded cursor-pointer hover:bg-green-800 transition-colors">
+                  <button className="mt-4 w-full py-2 bg-green-700 text-white rounded cursor-pointer font-medium hover:bg-green-800 transition-colors">
                     S&apos;inscrire
                   </button>
                 </div>
@@ -299,7 +299,7 @@ export default function Home() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </div>
                 <div>
@@ -313,12 +313,12 @@ export default function Home() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-green-700 text-white py-2 px-4 rounded-md cursor-pointer hover:bg-green-800 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  className="w-full font-medium bg-green-700 text-white py-2 px-4 rounded-lg cursor-pointer hover:bg-green-800 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                 >
                   Confirmer ma présence
                 </button>
